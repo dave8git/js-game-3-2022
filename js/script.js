@@ -27,6 +27,7 @@ function displayResult(computerMove, playerMove) {
         yourVictory++;
     } else if (computerMove ==  playerMove) {
         printMessage('Remis')
+        remis++; 
     } else if (playerMove == 'Nieznany ruch') {
         printMessage('Wpisz poprawną liczbę od 1 do 3');
     } else {
@@ -43,12 +44,13 @@ printMessage('Twój ruch to: ' + playerMove);
 
 let yourVictory = 0; 
 let computerVictory = 0; 
-for (let i = 0; i < 3000; i++) {
+let remis = 0;
+for (let i = 0; i < 300000; i++) {
     let playerInput = Math.floor(Math.random() * 3 + 1); 
     playGame(playerInput);
 }
 
-document.getElementById('messages').innerHTML = 'Wygrane ' + yourVictory + ' Przegrane ' + computerVictory;
+document.getElementById('messages').innerHTML = 'Wygrane ' + yourVictory + ' Przegrane ' + computerVictory + ' Remis ' + remis;
 
 console.log(yourVictory);
 console.log(computerVictory);
